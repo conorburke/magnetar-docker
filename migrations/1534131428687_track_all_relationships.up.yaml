@@ -1,0 +1,120 @@
+- args:
+    name: usersByownerId
+    table:
+      name: depots
+      schema: public
+    using:
+      foreign_key_constraint_on: owner_id
+  type: create_object_relationship
+- args:
+    name: toolssBydepotId
+    table:
+      name: depots
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: depot_id
+        table:
+          name: tools
+          schema: public
+  type: create_array_relationship
+- args:
+    name: usersByrenterId
+    table:
+      name: rented_tools
+      schema: public
+    using:
+      foreign_key_constraint_on: renter_id
+  type: create_object_relationship
+- args:
+    name: usersByownerId
+    table:
+      name: rented_tools
+      schema: public
+    using:
+      foreign_key_constraint_on: owner_id
+  type: create_object_relationship
+- args:
+    name: toolsBytoolId
+    table:
+      name: rented_tools
+      schema: public
+    using:
+      foreign_key_constraint_on: tool_id
+  type: create_object_relationship
+- args:
+    name: toolsBytoolId
+    table:
+      name: tool_pictures
+      schema: public
+    using:
+      foreign_key_constraint_on: tool_id
+  type: create_object_relationship
+- args:
+    name: depotsBydepotId
+    table:
+      name: tools
+      schema: public
+    using:
+      foreign_key_constraint_on: depot_id
+  type: create_object_relationship
+- args:
+    name: rentedToolssBytoolId
+    table:
+      name: tools
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: tool_id
+        table:
+          name: rented_tools
+          schema: public
+  type: create_array_relationship
+- args:
+    name: toolPicturessBytoolId
+    table:
+      name: tools
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: tool_id
+        table:
+          name: tool_pictures
+          schema: public
+  type: create_array_relationship
+- args:
+    name: depotssByownerId
+    table:
+      name: users
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: owner_id
+        table:
+          name: depots
+          schema: public
+  type: create_array_relationship
+- args:
+    name: rentedToolssByrenterId
+    table:
+      name: users
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: renter_id
+        table:
+          name: rented_tools
+          schema: public
+  type: create_array_relationship
+- args:
+    name: rentedToolssByownerId
+    table:
+      name: users
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: owner_id
+        table:
+          name: rented_tools
+          schema: public
+  type: create_array_relationship

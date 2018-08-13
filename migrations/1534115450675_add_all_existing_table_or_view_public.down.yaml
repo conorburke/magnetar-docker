@@ -1,0 +1,20 @@
+- args:
+    table:
+      name: rented_tools
+      schema: public
+  type: untrack_table
+- args:
+    table:
+      name: tools
+      schema: public
+  type: untrack_table
+- args:
+    table:
+      name: tool_pictures
+      schema: public
+  type: untrack_table
+- args:
+    table:
+      name: depots
+      schema: public
+  type: untrack_table

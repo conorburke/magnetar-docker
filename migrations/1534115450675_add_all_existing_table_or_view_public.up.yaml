@@ -1,0 +1,16 @@
+- args:
+    name: rented_tools
+    schema: public
+  type: add_existing_table_or_view
+- args:
+    name: tools
+    schema: public
+  type: add_existing_table_or_view
+- args:
+    name: tool_pictures
+    schema: public
+  type: add_existing_table_or_view
+- args:
+    name: depots
+    schema: public
+  type: add_existing_table_or_view

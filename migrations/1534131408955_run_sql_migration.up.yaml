@@ -1,0 +1,26 @@
+- args:
+    cascade: true
+    sql: "create table users (\n  id serial primary key,\n  google_id varchar unique,\n
+      \ first_name varchar NOT NULL DEFAULT '',\n  last_name varchar NOT NULL DEFAULT
+      '',\n  email varchar NOT NULL DEFAULT '',\n  phone_number varchar NOT NULL DEFAULT
+      '',\n  birth_date double precision,\n  loan_rating double precision not null
+      default -1,\n  borrow_rating double precision not null default -1\n);\n\ncreate
+      table depots (\n  id serial primary key,\n  address_1 varchar NOT NULL DEFAULT
+      '',\n  address_2 varchar NOT NULL DEFAULT '',\n  city varchar NOT NULL DEFAULT
+      '',\n  region varchar NOT NULL DEFAULT '',\n  zipcode integer NOT NULL DEFAULT
+      -1,\n  owner_id int references users on delete cascade\n);\n\ncreate table tools
+      (\n  id serial primary key,\n  title varchar NOT NULL DEFAULT '',\n  category
+      varchar NOT NULL DEFAULT '',\n  description varchar not null default '',\n  price
+      double precision NOT NULL DEFAULT 0,\n  depot_id int references depots on delete
+      cascade NOT NULL DEFAULT -1\n);\n\ncreate table rented_tools (\n  id serial
+      primary key,\n  tool_id int references tools on delete cascade NOT NULL DEFAULT
+      -1,\n  renter_id int references users on delete cascade NOT NULL DEFAULT -1,\n
+      \ owner_id int references users on delete cascade NOT NULL DEFAULT -1,\n  start_date
+      double precision,\n  end_date double precision \n);\n\ncreate table tool_pictures
+      (\n  id serial primary key,\n  image varchar not null default '',\n  tool_id
+      int references tools on delete cascade NOT NULL DEFAULT -1\n);\n\n"
+  type: run_sql
+- args:
+    name: users
+    schema: public
+  type: add_existing_table_or_view

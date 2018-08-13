@@ -1,0 +1,72 @@
+- args:
+    relationship: usersByownerId
+    table:
+      name: depots
+      schema: public
+  type: drop_relationship
+- args:
+    relationship: toolssBydepotId
+    table:
+      name: depots
+      schema: public
+  type: drop_relationship
+- args:
+    relationship: usersByrenterId
+    table:
+      name: rented_tools
+      schema: public
+  type: drop_relationship
+- args:
+    relationship: usersByownerId
+    table:
+      name: rented_tools
+      schema: public
+  type: drop_relationship
+- args:
+    relationship: toolsBytoolId
+    table:
+      name: rented_tools
+      schema: public
+  type: drop_relationship
+- args:
+    relationship: toolsBytoolId
+    table:
+      name: tool_pictures
+      schema: public
+  type: drop_relationship
+- args:
+    relationship: depotsBydepotId
+    table:
+      name: tools
+      schema: public
+  type: drop_relationship
+- args:
+    relationship: rentedToolssBytoolId
+    table:
+      name: tools
+      schema: public
+  type: drop_relationship
+- args:
+    relationship: toolPicturessBytoolId
+    table:
+      name: tools
+      schema: public
+  type: drop_relationship
+- args:
+    relationship: depotssByownerId
+    table:
+      name: users
+      schema: public
+  type: drop_relationship
+- args:
+    relationship: rentedToolssByrenterId
+    table:
+      name: users
+      schema: public
+  type: drop_relationship
+- args:
+    relationship: rentedToolssByownerId
+    table:
+      name: users
+      schema: public
+  type: drop_relationship
